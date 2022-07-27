@@ -102,7 +102,7 @@ Function sendToTelegram(textMessage)
     Dim CHAT_ID, TOKEN As Variant
 
     TOKEN = ""    'между двойных ковычек укажите токен бота
-    CHAT_ID = Array("")    'в скобках, через запятую, между двойных ковычек укажите ID получателей
+    USER_ID = Array("")    'в скобках, через запятую, между двойных ковычек укажите ID получателей
 
     textMessage = "Автор: " & Application.UserName & "%0D%0A" & "Книга: " & Split(ActiveWorkbook.Name, ".")(0) & "%0D%0A" & textMessage
     For i = 1 To Len(textMessage)
@@ -116,8 +116,8 @@ Function sendToTelegram(textMessage)
         Message = Message & T
     Next
 
-    For i = LBound(CHAT_ID, 1) To UBound(CHAT_ID, 1)
-        sURL = "https://api.telegram.org/bot" & TOKEN & "/sendMessage?chat_id=" & CHAT_ID(i) & "&text=" & "%0D%0A" & Message
+    For i = LBound(USER_ID, 1) To UBound(USER_ID, 1)
+        sURL = "https://api.telegram.org/bot" & TOKEN & "/sendMessage?chat_id=" & USER_ID(i) & "&text=" & "%0D%0A" & Message
         Set oHttp = CreateObject("Msxml2.XMLHTTP")
         oHttp.Open "POST", sURL, False
         oHttp.send
