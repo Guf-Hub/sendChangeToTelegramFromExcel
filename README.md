@@ -1,7 +1,6 @@
 # sendChangeToTelegramFromExcel
 Скрипт фиксирующий изменения в таблице MS Excel и отправляющих их в Telegram бот по [API Telegram](https://core.telegram.org/bots/api).<br/>
-Для работы необходимы TOKEN бота, CHAT_ID получателей сообщений и постоянное наличие Интернет на компьютере, где размещён файл.
-
+Для работы необходимы API Token бота, user_id получателей сообщений, наличие Интернет соединения на компьютере, где размещён файл.
 
 [![Donate](https://img.shields.io/badge/Donate-Yoomoney-green.svg)](https://yoomoney.ru/to/410019620244262)
 
@@ -12,8 +11,8 @@
 * [**Создать**](https://zen.yandex.ru/media/excelifehack/upravliaem-telegram-botom-iz-google-tablicy-62a5c73192615c0231850322) или выбрать имеющегося бота;
 * What do you want to do with the bot? > **API Token** (выбрать).
 
-### Узнать CHAT_ID получателя:
-* Получить **CHAT_ID** > добавиться в бота [**@getmyid_bot**](https://t.me/getmyid_bot) и нажать **Начать**.<br>
+### Узнать USER_ID получателя:
+* Получить **USER_ID** > добавиться в бота [**@getmyid_bot**](https://t.me/getmyid_bot) и нажать **Начать**.<br>
 _В ответном сообщении отобразится ID, после 'Your user ID:' XXXXXX._
 
 Далее, используйте [**Шаблон**](https://drive.google.com/file/d/12NSVsWidJVjW4108-xLvF9Qs8bvkh7Aa/view?usp=sharing) или добавьте код в ваш файл:
