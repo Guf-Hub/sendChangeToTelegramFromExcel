@@ -1,12 +1,3 @@
-VERSION 1.0 CLASS
-BEGIN
-  MultiUse = -1  'True
-END
-Attribute VB_Name = "ЭтаКнига"
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = True
 '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 '* Sub        : Набор функций отслеживающих события в книге для отправки сообщений в Telegram.
 '* Created    : 27-07-2022 13:28
@@ -99,7 +90,6 @@ Done:
 EndMacro:
     Application.EnableEvents = True
     Debug.Print Erl
-    MsgBox "Error: " & Err.Description
     
 End Sub
 
