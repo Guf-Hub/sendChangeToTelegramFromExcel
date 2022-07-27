@@ -2,47 +2,47 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "ЭтаКнига"
+Attribute VB_Name = "Р­С‚Р°РљРЅРёРіР°"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
 '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-'* Sub        : Набор функций отслеживающих события в книге для отправки сообщений в Telegram.
+'* Sub        : РќР°Р±РѕСЂ С„СѓРЅРєС†РёР№ РѕС‚СЃР»РµР¶РёРІР°СЋС‰РёС… СЃРѕР±С‹С‚РёСЏ РІ РєРЅРёРіРµ РґР»СЏ РѕС‚РїСЂР°РІРєРё СЃРѕРѕР±С‰РµРЅРёР№ РІ Telegram.
 '* Created    : 27-07-2022 13:28
-'* Author     : Mikhail Nosaev - разработка Excel, Google таблиц и VBA, GAS скриптов.
+'* Author     : Mikhail Nosaev - СЂР°Р·СЂР°Р±РѕС‚РєР° Excel, Google С‚Р°Р±Р»РёС† Рё VBA, GAS СЃРєСЂРёРїС‚РѕРІ.
 '* Contacts   : https://t.me/nosaev_m
 '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Dim oldValue
 
 Private Sub Workbook_Open()
-    ' Открытие книги
-    Call sendToTelegram("Открыл книгу")
+    ' РћС‚РєСЂС‹С‚РёРµ РєРЅРёРіРё
+    Call sendToTelegram("РћС‚РєСЂС‹Р» РєРЅРёРіСѓ")
 End Sub
 
 Private Sub Workbook_BeforeClose(Cancel As Boolean)
-    ' Закрытие книги
-    Call sendToTelegram("Закрыл книгу")
+    ' Р—Р°РєСЂС‹С‚РёРµ РєРЅРёРіРё
+    Call sendToTelegram("Р—Р°РєСЂС‹Р» РєРЅРёРіСѓ")
 End Sub
 
 Private Sub Workbook_BeforePrint(Cancel As Boolean)
-    ' Печать
-    Call sendToTelegram("Напечатал лист: " & ThisWorkbook.ActiveSheet.Name)
+    ' РџРµС‡Р°С‚СЊ
+    Call sendToTelegram("РќР°РїРµС‡Р°С‚Р°Р» Р»РёСЃС‚: " & ThisWorkbook.ActiveSheet.Name)
 End Sub
 
 Private Sub Workbook_NewSheet(ByVal Sh As Object)
-    ' Добавление листа
-    Call sendToTelegram("Добавил новый лист в книгу")
+    ' Р”РѕР±Р°РІР»РµРЅРёРµ Р»РёСЃС‚Р°
+    Call sendToTelegram("Р”РѕР±Р°РІРёР» РЅРѕРІС‹Р№ Р»РёСЃС‚ РІ РєРЅРёРіСѓ")
 End Sub
 
 Private Sub Workbook_SheetBeforeDelete(ByVal Sh As Object)
-    ' Удаление листа
-    Call sendToTelegram("Удалил лист: " & Sh.Name)
+    ' РЈРґР°Р»РµРЅРёРµ Р»РёСЃС‚Р°
+    Call sendToTelegram("РЈРґР°Р»РёР» Р»РёСЃС‚: " & Sh.Name)
 End Sub
 
 Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Range)
-    ' Сохранение старого значения
+    ' РЎРѕС…СЂР°РЅРµРЅРёРµ СЃС‚Р°СЂРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ
     If Target.Cells.Count > 1 Then Exit Sub
 
     If Target.HasFormula Then
@@ -54,18 +54,18 @@ Private Sub Workbook_SheetSelectionChange(ByVal Sh As Object, ByVal Target As Ra
 End Sub
 
 Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range)
-    ' Изменения на листе
+    ' РР·РјРµРЅРµРЅРёСЏ РЅР° Р»РёСЃС‚Рµ
     Application.EnableEvents = False
 
     On Error GoTo EndMacro
-    If Not Sh.Name = "Тест" Then
+    If Not Sh.Name = "РўРµСЃС‚" Then
         Application.EnableEvents = True
         Exit Sub
-    End If ' Выход если изменения не на указанном листе, закомментировать при необходимости
+    End If ' Р’С‹С…РѕРґ РµСЃР»Рё РёР·РјРµРЅРµРЅРёСЏ РЅРµ РЅР° СѓРєР°Р·Р°РЅРЅРѕРј Р»РёСЃС‚Рµ, Р·Р°РєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
     If Intersect(Target, Range("A1:B15")) Is Nothing Then
         Application.EnableEvents = True
         Exit Sub
-    End If ' Выход если изменения не в указанном диапазоне, изменить диапазон или закомментировать при необходимости
+    End If ' Р’С‹С…РѕРґ РµСЃР»Рё РёР·РјРµРЅРµРЅРёСЏ РЅРµ РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ, РёР·РјРµРЅРёС‚СЊ РґРёР°РїР°Р·РѕРЅ РёР»Рё Р·Р°РєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
     
     If Target.Cells.Count = 1 Then
         If Target.HasFormula Then
@@ -87,10 +87,10 @@ Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range)
 
     Application.EnableEvents = True
 
-    Message = "Изменил лист: " & Sh.Name & "%0D%0A" _
-            & "Диапазон: " & Target.Address(False, False) & "%0D%0A" _
-            & "Было: " & oldValue & "%0D%0A" _
-            & "Стало: " & newValue
+    Message = "РР·РјРµРЅРёР» Р»РёСЃС‚: " & Sh.Name & "%0D%0A" _
+            & "Р”РёР°РїР°Р·РѕРЅ: " & Target.Address(False, False) & "%0D%0A" _
+            & "Р‘С‹Р»Рѕ: " & oldValue & "%0D%0A" _
+            & "РЎС‚Р°Р»Рѕ: " & newValue
 
     Call sendToTelegram(Message)
     
@@ -104,19 +104,17 @@ EndMacro:
 End Sub
 
 '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-'* Function   : sendToTelegram отправка сообщений в Telegram.
+'* Function   : sendToTelegram РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёР№ РІ Telegram.
 '* Created    : 27-07-2022 13:28
-'* Author     : Mikhail Nosaev - разработка Excel, Google таблиц и VBA, GAS скриптов.
-'* Contacts   : https://t.me/nosaev_m
 '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Function sendToTelegram(textMessage)
 
     Dim CHAT_ID, TOKEN As Variant
 
-    TOKEN = ""    'между двойных ковычек укажите токен бота
-    CHAT_ID = Array("")    'в скобках, через запятую, между двойных ковычек укажите ID получателей
+    TOKEN = ""    'РјРµР¶РґСѓ РґРІРѕР№РЅС‹С… РєРѕРІС‹С‡РµРє СѓРєР°Р¶РёС‚Рµ С‚РѕРєРµРЅ Р±РѕС‚Р°
+    CHAT_ID = Array("")    'РІ СЃРєРѕР±РєР°С…, С‡РµСЂРµР· Р·Р°РїСЏС‚СѓСЋ, РјРµР¶РґСѓ РґРІРѕР№РЅС‹С… РєРѕРІС‹С‡РµРє СѓРєР°Р¶РёС‚Рµ ID РїРѕР»СѓС‡Р°С‚РµР»РµР№
 
-    textMessage = "Автор: " & Application.UserName & "%0D%0A" & "Книга: " & Split(ActiveWorkbook.Name, ".")(0) & "%0D%0A" & textMessage
+    textMessage = "РђРІС‚РѕСЂ: " & Application.UserName & "%0D%0A" & "РљРЅРёРіР°: " & Split(ActiveWorkbook.Name, ".")(0) & "%0D%0A" & textMessage
     For i = 1 To Len(textMessage)
         l = Mid(textMessage, i, 1)
         Select Case AscW(l)
