@@ -8,7 +8,7 @@
 * What do you want to do with the bot? > API Token (выбрать).
 
 ### Узнать CHAT_ID получателя:
-* Получить **user_id** > добавиться в бота [**@getmyid_bot**](https://t.me/getmyid_bot) и нажать **Начать**.<br>
+* Получить **CHAT_ID** > добавиться в бота [**@getmyid_bot**](https://t.me/getmyid_bot) и нажать **Начать**.<br>
 _В ответном сообщении отобразится ID, после 'Your user ID:' XXXXXX._
 
 Далее, используйте [**Шаблон**](https://drive.google.com/file/d/12NSVsWidJVjW4108-xLvF9Qs8bvkh7Aa/view?usp=sharing) или добавьте код в ваш файл:
