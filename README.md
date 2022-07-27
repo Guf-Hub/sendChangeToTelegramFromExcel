@@ -1,5 +1,6 @@
 # sendChangeToTelegramFromExcel
 Скрипт фиксирующий изменения в таблице MS Excel и отправляющих их в Telegram бот.
+Для работы необходимы TOKEN бота, CHAT_ID получателей сообщений и постоянное наличие Интернет на компьютере, где размещен файл.
 
 ### Получить TOKEN:
 * Открыть в Telegram > [**@BotFather**](https://t.me/BotFather);
